@@ -1,0 +1,169 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="db_busModelStoreContainer" CdmEntityContainer="db_busEntities">
+    <EntitySetMapping Name="BanVeNgays">
+      <EntityTypeMapping TypeName="db_busModel.BanVeNgay">
+        <MappingFragment StoreEntitySet="BanVeNgay">
+          <ScalarProperty Name="MaGiaoDich" ColumnName="MaGiaoDich" />
+          <ScalarProperty Name="Ngay" ColumnName="Ngay" />
+          <ScalarProperty Name="MaPhuXe" ColumnName="MaPhuXe" />
+          <ScalarProperty Name="MaVeNgay" ColumnName="MaVeNgay" />
+          <ScalarProperty Name="SoVePhatRa" ColumnName="SoVePhatRa" />
+          <ScalarProperty Name="SoVeThuVe" ColumnName="SoVeThuVe" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="BanVeThangs">
+      <EntityTypeMapping TypeName="db_busModel.BanVeThang">
+        <MappingFragment StoreEntitySet="BanVeThang">
+          <ScalarProperty Name="MaGiaoDich" ColumnName="MaGiaoDich" />
+          <ScalarProperty Name="Ngay" ColumnName="Ngay" />
+          <ScalarProperty Name="MaNhanVienBanVeThang" ColumnName="MaNhanVienBanVeThang" />
+          <ScalarProperty Name="MaVeThang" ColumnName="MaVeThang" />
+          <ScalarProperty Name="SoVePhatRa" ColumnName="SoVePhatRa" />
+          <ScalarProperty Name="SoVeThuVe" ColumnName="SoVeThuVe" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="DiemBanVeThangs">
+      <EntityTypeMapping TypeName="db_busModel.DiemBanVeThang">
+        <MappingFragment StoreEntitySet="DiemBanVeThang">
+          <ScalarProperty Name="MaDiemBanVeThang" ColumnName="MaDiemBanVeThang" />
+          <ScalarProperty Name="DiaChi" ColumnName="DiaChi" />
+          <ScalarProperty Name="SoDienThoai" ColumnName="SoDienThoai" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="LuuThongs">
+      <EntityTypeMapping TypeName="db_busModel.LuuThong">
+        <MappingFragment StoreEntitySet="LuuThong">
+          <ScalarProperty Name="MaLuuThong" ColumnName="MaLuuThong" />
+          <ScalarProperty Name="Ngay" ColumnName="Ngay" />
+          <ScalarProperty Name="Ca" ColumnName="Ca" />
+          <ScalarProperty Name="MaXeBuyt" ColumnName="MaXeBuyt" />
+          <ScalarProperty Name="MaTuyenXe" ColumnName="MaTuyenXe" />
+          <ScalarProperty Name="MaTaiXe" ColumnName="MaTaiXe" />
+          <ScalarProperty Name="MaPhuXe" ColumnName="MaPhuXe" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="NhanVienBanVeThangs">
+      <EntityTypeMapping TypeName="db_busModel.NhanVienBanVeThang">
+        <MappingFragment StoreEntitySet="NhanVienBanVeThang">
+          <ScalarProperty Name="MaNhanVienBanVeThang" ColumnName="MaNhanVienBanVeThang" />
+          <ScalarProperty Name="HoTen" ColumnName="HoTen" />
+          <ScalarProperty Name="NgaySinh" ColumnName="NgaySinh" />
+          <ScalarProperty Name="GioiTinh" ColumnName="GioiTinh" />
+          <ScalarProperty Name="DiaChi" ColumnName="DiaChi" />
+          <ScalarProperty Name="DienThoai" ColumnName="DienThoai" />
+          <ScalarProperty Name="SoCMTND" ColumnName="SoCMTND" />
+          <ScalarProperty Name="AnhCaNhan" ColumnName="AnhCaNhan" />
+          <ScalarProperty Name="MaDiemBanVeThang" ColumnName="MaDiemBanVeThang" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="NhanVienVanPhongs">
+      <EntityTypeMapping TypeName="db_busModel.NhanVienVanPhong">
+        <MappingFragment StoreEntitySet="NhanVienVanPhong">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="HoTen" ColumnName="HoTen" />
+          <ScalarProperty Name="NgaySinh" ColumnName="NgaySinh" />
+          <ScalarProperty Name="GioiTinh" ColumnName="GioiTinh" />
+          <ScalarProperty Name="DiaChi" ColumnName="DiaChi" />
+          <ScalarProperty Name="DienThoai" ColumnName="DienThoai" />
+          <ScalarProperty Name="SoCMTND" ColumnName="SoCMTND" />
+          <ScalarProperty Name="BangCap" ColumnName="BangCap" />
+          <ScalarProperty Name="TaiKhoan" ColumnName="TaiKhoan" />
+          <ScalarProperty Name="MatKhau" ColumnName="MatKhau" />
+          <ScalarProperty Name="AnhCaNhan" ColumnName="AnhCaNhan" />
+          <ScalarProperty Name="MaPhongBan" ColumnName="MaPhongBan" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="PhongBans">
+      <EntityTypeMapping TypeName="db_busModel.PhongBan">
+        <MappingFragment StoreEntitySet="PhongBan">
+          <ScalarProperty Name="MaPhongBan" ColumnName="MaPhongBan" />
+          <ScalarProperty Name="TenPhongBan" ColumnName="TenPhongBan" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="PhuXes">
+      <EntityTypeMapping TypeName="db_busModel.PhuXe">
+        <MappingFragment StoreEntitySet="PhuXe">
+          <ScalarProperty Name="MaPhuXe" ColumnName="MaPhuXe" />
+          <ScalarProperty Name="HoTen" ColumnName="HoTen" />
+          <ScalarProperty Name="NgaySinh" ColumnName="NgaySinh" />
+          <ScalarProperty Name="GioiTinh" ColumnName="GioiTinh" />
+          <ScalarProperty Name="DiaChi" ColumnName="DiaChi" />
+          <ScalarProperty Name="DienThoai" ColumnName="DienThoai" />
+          <ScalarProperty Name="SoCMTND" ColumnName="SoCMTND" />
+          <ScalarProperty Name="AnhCaNhan" ColumnName="AnhCaNhan" />
+          <ScalarProperty Name="MaTuyenXe" ColumnName="MaTuyenXe" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TaiXes">
+      <EntityTypeMapping TypeName="db_busModel.TaiXe">
+        <MappingFragment StoreEntitySet="TaiXe">
+          <ScalarProperty Name="MaTaiXe" ColumnName="MaTaiXe" />
+          <ScalarProperty Name="HoTen" ColumnName="HoTen" />
+          <ScalarProperty Name="NgaySinh" ColumnName="NgaySinh" />
+          <ScalarProperty Name="GioiTinh" ColumnName="GioiTinh" />
+          <ScalarProperty Name="DiaChi" ColumnName="DiaChi" />
+          <ScalarProperty Name="DienThoai" ColumnName="DienThoai" />
+          <ScalarProperty Name="SoCMTND" ColumnName="SoCMTND" />
+          <ScalarProperty Name="AnhCaNhan" ColumnName="AnhCaNhan" />
+          <ScalarProperty Name="LoaiBang" ColumnName="LoaiBang" />
+          <ScalarProperty Name="MaTuyenXe" ColumnName="MaTuyenXe" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TuyenXes">
+      <EntityTypeMapping TypeName="db_busModel.TuyenXe">
+        <MappingFragment StoreEntitySet="TuyenXe">
+          <ScalarProperty Name="ChiTietTram" ColumnName="ChiTietTram" />
+          <ScalarProperty Name="MaTuyenXe" ColumnName="MaTuyenXe" />
+          <ScalarProperty Name="TenTuyenXe" ColumnName="TenTuyenXe" />
+          <ScalarProperty Name="GioBatDau" ColumnName="GioBatDau" />
+          <ScalarProperty Name="GioKetThuc" ColumnName="GioKetThuc" />
+          <ScalarProperty Name="DiemDau" ColumnName="DiemDau" />
+          <ScalarProperty Name="DiemCuoi" ColumnName="DiemCuoi" />
+          <ScalarProperty Name="TanSuat" ColumnName="TanSuat" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="VeNgays">
+      <EntityTypeMapping TypeName="db_busModel.VeNgay">
+        <MappingFragment StoreEntitySet="VeNgay">
+          <ScalarProperty Name="MaVeNgay" ColumnName="MaVeNgay" />
+          <ScalarProperty Name="TenVeNgay" ColumnName="TenVeNgay" />
+          <ScalarProperty Name="DonGia" ColumnName="DonGia" />
+          <ScalarProperty Name="MaTuyenXe" ColumnName="MaTuyenXe" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="VeThangs">
+      <EntityTypeMapping TypeName="db_busModel.VeThang">
+        <MappingFragment StoreEntitySet="VeThang">
+          <ScalarProperty Name="MaVeThang" ColumnName="MaVeThang" />
+          <ScalarProperty Name="TenVeThang" ColumnName="TenVeThang" />
+          <ScalarProperty Name="DonGia" ColumnName="DonGia" />
+          <ScalarProperty Name="GhiChu" ColumnName="GhiChu" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="XeBuyts">
+      <EntityTypeMapping TypeName="db_busModel.XeBuyt">
+        <MappingFragment StoreEntitySet="XeBuyt">
+          <ScalarProperty Name="MaXeBuyt" ColumnName="MaXeBuyt" />
+          <ScalarProperty Name="BienKiemSoat" ColumnName="BienKiemSoat" />
+          <ScalarProperty Name="HangSanXuat" ColumnName="HangSanXuat" />
+          <ScalarProperty Name="NamSanXuat" ColumnName="NamSanXuat" />
+          <ScalarProperty Name="SoGhe" ColumnName="SoGhe" />
+          <ScalarProperty Name="MaTuyenXe" ColumnName="MaTuyenXe" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

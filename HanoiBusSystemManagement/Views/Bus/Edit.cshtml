@@ -1,0 +1,71 @@
+﻿@model HanoiBusSystemManagement.Models.XeBuyt
+
+@{
+    ViewBag.Title = "Edit";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@using (Html.BeginForm("Edit", "Bus", FormMethod.Post))
+{
+    @Html.AntiForgeryToken()
+
+    <div class="form-horizontal">
+        <h4>Sửa thông tin xe buýt</h4>
+        <hr />
+        @Html.ValidationSummary(true)
+
+        <div class="form-group">
+            <label class="control-label col-md-2">Biển kiểm soát</label>
+            <div class="col-md-10">
+                @Html.TextBoxFor(model => model.BienKiemSoat, null, new { @style = "width:300px;", @required = "true" })
+                @Html.ValidationMessageFor(model => model.BienKiemSoat)
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label class="control-label col-md-2">Hãng sản xuất</label>
+            <div class="col-md-10">
+                @Html.TextBoxFor(model => model.HangSanXuat, null, new { @style = "width:300px;", @required = "true" })
+                @Html.ValidationMessageFor(model => model.HangSanXuat)
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label class="control-label col-md-2">Năm sản xuất</label>
+            <div class="col-md-10">
+                @Html.TextBoxFor(model => model.NamSanXuat, null, new { @style = "width:300px;", @required = "true", @type = "number" })
+                @Html.ValidationMessageFor(model => model.NamSanXuat)
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label class="control-label col-md-2">Số ghế</label>
+            <div class="col-md-10">
+                @Html.TextBoxFor(model => model.SoGhe, null, new { @style = "width:300px;", @required = "true", @type = "number" })
+                @Html.ValidationMessageFor(model => model.SoGhe)
+            </div>
+        </div>
+
+        @{
+    var list = new List<SelectListItem>();
+    foreach (HanoiBusSystemManagement.Models.TuyenXe item in ViewBag.TuyenXe)
+    {
+        list.Add(new SelectListItem() { Text = @item.TenTuyenXe, Value = @item.MaTuyenXe.ToString() });
+    }
+        }
+        <div class="form-group">
+            <label class="control-label col-md-2">Tuyến xe</label>
+            <div class="col-md-10">
+                @Html.DropDownListFor(model => model.MaTuyenXe, list, new { @class = "form-control", @style = "width:300px;" })
+                @Html.ValidationMessageFor(model => model.MaTuyenXe)
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <a href="/Bus/Index" class="btn btn-round btn-warning">Trở lại</a>
+                <input class="btn btn-round btn-success" type="submit" value="Đồng Ý" />
+            </div>
+        </div>
+    </div>
+}
+

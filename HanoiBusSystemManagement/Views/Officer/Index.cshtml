@@ -1,0 +1,122 @@
+﻿@model IEnumerable<HanoiBusSystemManagement.Models.NhanVienVanPhong>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@section PrintJS
+{
+    <script>
+        $(document).ready(function () {
+            var handleDataTableButtons = function () {
+                if ($("#datatable-buttons").length) {
+                    $("#datatable-buttons").DataTable({
+                        dom: "Bfrtip",
+                        buttons: [
+                        ],
+                        responsive: true
+                    });
+                }
+            };
+
+            TableManageButtons = function () {
+                "use strict";
+                return {
+                    init: function () {
+                        handleDataTableButtons();
+                    }
+                };
+            }();
+
+            $('#datatable').dataTable();
+            $('#datatable-keytable').DataTable({
+                keys: true
+            });
+
+            $('#datatable-responsive').DataTable();
+
+            $('#datatable-scroller').DataTable({
+                ajax: "js/datatables/json/scroller-demo.json",
+                deferRender: true,
+                scrollY: 380,
+                scrollCollapse: true,
+                scroller: true
+            });
+
+            var table = $('#datatable-fixed-header').DataTable({
+                fixedHeader: true
+            });
+
+            TableManageButtons.init();
+        });
+    </script>
+}
+
+<div class="col-md-12 col-sm-12 col-xs-12">
+    <div class="x_panel">
+        <div class="x_title">
+            <h2>Danh sách nhân viên các phòng ban</h2>
+            <div class="clearfix"></div>
+        </div>
+
+        <div class="x_content">
+            <table id="datatable-buttons" class="table table-striped table-bordered">
+                <thead>
+                    <tr>
+                        <th>Ảnh</th>
+                        <th>Họ tên</th>
+                        <th>Ngày sinh</th>
+                        <th>Giới tính</th>
+                        <th>Địa chỉ</th>
+                        <th>Điện thoại</th>
+                        <th>Số CMTND</th>
+                        <th>Bằng cấp</th>
+                        <th>Tài khoản</th>
+                        <th>Phòng ban</th>
+                        <th></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var item in Model)
+                    {
+                        <tr>
+                            <td><img src="@item.AnhCaNhan" width="100px" /></td>
+                            <td>@item.HoTen</td>
+                            <td>@item.NgaySinh</td>
+                            @if (@item.GioiTinh == true)
+                            {
+                                <td>Nam</td>
+                            }
+                            else
+                            {
+                                <td>Nữ</td>
+                            }
+                            <td>@item.DiaChi</td>
+                            <td>@item.DienThoai</td>
+                            <td>@item.SoCMTND</td>
+                            <td>@item.BangCap</td>
+                            <td>@item.TaiKhoan</td>
+                            <td>@item.PhongBan.TenPhongBan</td>
+                            <td width="100px;">
+                                <div class="btn-group">
+                                    <button type="button" class="btn btn-danger dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
+                                        <span class="caret"></span>
+                                        <span style="width:20px;" class="sr-only">Toggle Dropdown</span>
+                                    </button>
+                                    <ul class="dropdown-menu" role="menu">
+                                        <li><a href="/Officer/Edit/@item.ID">Sửa</a></li>
+                                        <li><a href="/Officer/Delete/@item.ID">Xóa</a></li>
+                                    </ul>
+                                </div>
+                            </td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+        <a href="/Officer/Create" class="btn btn-success">Thêm mới</a>
+        <a href="/Officer/Print" class="btn btn-primary">In ấn</a>
+    </div>
+</div>
+

@@ -1,0 +1,421 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="db_busModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="BanVeNgay">
+    <Key>
+      <PropertyRef Name="MaGiaoDich" />
+    </Key>
+    <Property Name="MaGiaoDich" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Ngay" Type="DateTime" Precision="0" />
+    <Property Name="MaPhuXe" Type="Int32" />
+    <Property Name="MaVeNgay" Type="Int32" />
+    <Property Name="SoVePhatRa" Type="Int32" />
+    <Property Name="SoVeThuVe" Type="Int32" />
+    <NavigationProperty Name="PhuXe" Relationship="Self.FK__BanVeNgay__MaPhu__2D27B809" FromRole="BanVeNgay" ToRole="PhuXe" />
+    <NavigationProperty Name="VeNgay" Relationship="Self.FK__BanVeNgay__MaVeN__2E1BDC42" FromRole="BanVeNgay" ToRole="VeNgay" />
+  </EntityType>
+  <EntityType Name="BanVeThang">
+    <Key>
+      <PropertyRef Name="MaGiaoDich" />
+    </Key>
+    <Property Name="MaGiaoDich" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Ngay" Type="DateTime" Precision="0" />
+    <Property Name="MaNhanVienBanVeThang" Type="Int32" />
+    <Property Name="MaVeThang" Type="Int32" />
+    <Property Name="SoVePhatRa" Type="Int32" />
+    <Property Name="SoVeThuVe" Type="Int32" />
+    <NavigationProperty Name="NhanVienBanVeThang" Relationship="Self.FK__BanVeThan__MaNha__32E0915F" FromRole="BanVeThang" ToRole="NhanVienBanVeThang" />
+    <NavigationProperty Name="VeThang" Relationship="Self.FK__BanVeThan__MaVeT__33D4B598" FromRole="BanVeThang" ToRole="VeThang" />
+  </EntityType>
+  <EntityType Name="DiemBanVeThang">
+    <Key>
+      <PropertyRef Name="MaDiemBanVeThang" />
+    </Key>
+    <Property Name="MaDiemBanVeThang" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="DiaChi" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="SoDienThoai" Type="String" MaxLength="11" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="NhanVienBanVeThangs" Relationship="Self.FK__NhanVienB__MaDie__173876EA" FromRole="DiemBanVeThang" ToRole="NhanVienBanVeThang" />
+  </EntityType>
+  <EntityType Name="LuuThong">
+    <Key>
+      <PropertyRef Name="MaLuuThong" />
+    </Key>
+    <Property Name="MaLuuThong" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Ngay" Type="DateTime" Precision="0" />
+    <Property Name="Ca" Type="Int32" />
+    <Property Name="MaXeBuyt" Type="Int32" />
+    <Property Name="MaTuyenXe" Type="Int32" />
+    <Property Name="MaTaiXe" Type="Int32" />
+    <Property Name="MaPhuXe" Type="Int32" />
+    <NavigationProperty Name="PhuXe" Relationship="Self.FK__LuuThong__MaPhuX__276EDEB3" FromRole="LuuThong" ToRole="PhuXe" />
+    <NavigationProperty Name="TaiXe" Relationship="Self.FK__LuuThong__MaTaiX__267ABA7A" FromRole="LuuThong" ToRole="TaiXe" />
+    <NavigationProperty Name="TuyenXe" Relationship="Self.FK__LuuThong__MaTuye__25869641" FromRole="LuuThong" ToRole="TuyenXe" />
+    <NavigationProperty Name="XeBuyt" Relationship="Self.FK__LuuThong__MaXeBu__24927208" FromRole="LuuThong" ToRole="XeBuyt" />
+  </EntityType>
+  <EntityType Name="NhanVienBanVeThang">
+    <Key>
+      <PropertyRef Name="MaNhanVienBanVeThang" />
+    </Key>
+    <Property Name="MaNhanVienBanVeThang" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="HoTen" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="NgaySinh" Type="DateTime" Precision="0" />
+    <Property Name="GioiTinh" Type="Boolean" />
+    <Property Name="DiaChi" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="DienThoai" Type="String" MaxLength="11" FixedLength="false" Unicode="true" />
+    <Property Name="SoCMTND" Type="String" MaxLength="11" FixedLength="false" Unicode="true" />
+    <Property Name="AnhCaNhan" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="MaDiemBanVeThang" Type="Int32" />
+    <NavigationProperty Name="BanVeThangs" Relationship="Self.FK__BanVeThan__MaNha__32E0915F" FromRole="NhanVienBanVeThang" ToRole="BanVeThang" />
+    <NavigationProperty Name="DiemBanVeThang" Relationship="Self.FK__NhanVienB__MaDie__173876EA" FromRole="NhanVienBanVeThang" ToRole="DiemBanVeThang" />
+  </EntityType>
+  <EntityType Name="NhanVienVanPhong">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="HoTen" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="NgaySinh" Type="DateTime" Precision="0" />
+    <Property Name="GioiTinh" Type="Boolean" />
+    <Property Name="DiaChi" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="DienThoai" Type="String" MaxLength="11" FixedLength="false" Unicode="true" />
+    <Property Name="SoCMTND" Type="String" MaxLength="11" FixedLength="false" Unicode="true" />
+    <Property Name="BangCap" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
+    <Property Name="TaiKhoan" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="MatKhau" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="AnhCaNhan" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="MaPhongBan" Type="Int32" />
+    <NavigationProperty Name="PhongBan" Relationship="Self.FK__NhanVienV__MaPho__1273C1CD" FromRole="NhanVienVanPhong" ToRole="PhongBan" />
+  </EntityType>
+  <EntityType Name="PhongBan">
+    <Key>
+      <PropertyRef Name="MaPhongBan" />
+    </Key>
+    <Property Name="MaPhongBan" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="TenPhongBan" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="NhanVienVanPhongs" Relationship="Self.FK__NhanVienV__MaPho__1273C1CD" FromRole="PhongBan" ToRole="NhanVienVanPhong" />
+  </EntityType>
+  <EntityType Name="PhuXe">
+    <Key>
+      <PropertyRef Name="MaPhuXe" />
+    </Key>
+    <Property Name="MaPhuXe" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="HoTen" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="NgaySinh" Type="DateTime" Precision="0" />
+    <Property Name="GioiTinh" Type="Boolean" />
+    <Property Name="DiaChi" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="DienThoai" Type="String" MaxLength="11" FixedLength="false" Unicode="true" />
+    <Property Name="SoCMTND" Type="String" MaxLength="11" FixedLength="false" Unicode="true" />
+    <Property Name="AnhCaNhan" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="MaTuyenXe" Type="Int32" />
+    <NavigationProperty Name="BanVeNgays" Relationship="Self.FK__BanVeNgay__MaPhu__2D27B809" FromRole="PhuXe" ToRole="BanVeNgay" />
+    <NavigationProperty Name="LuuThongs" Relationship="Self.FK__LuuThong__MaPhuX__276EDEB3" FromRole="PhuXe" ToRole="LuuThong" />
+    <NavigationProperty Name="TuyenXe" Relationship="Self.FK__PhuXe__MaTuyenXe__1ED998B2" FromRole="PhuXe" ToRole="TuyenXe" />
+  </EntityType>
+  <EntityType Name="TaiXe">
+    <Key>
+      <PropertyRef Name="MaTaiXe" />
+    </Key>
+    <Property Name="MaTaiXe" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="HoTen" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="NgaySinh" Type="DateTime" Precision="0" />
+    <Property Name="GioiTinh" Type="Boolean" />
+    <Property Name="DiaChi" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="DienThoai" Type="String" MaxLength="11" FixedLength="false" Unicode="true" />
+    <Property Name="SoCMTND" Type="String" MaxLength="11" FixedLength="false" Unicode="true" />
+    <Property Name="AnhCaNhan" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="LoaiBang" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+    <Property Name="MaTuyenXe" Type="Int32" />
+    <NavigationProperty Name="LuuThongs" Relationship="Self.FK__LuuThong__MaTaiX__267ABA7A" FromRole="TaiXe" ToRole="LuuThong" />
+    <NavigationProperty Name="TuyenXe" Relationship="Self.FK__TaiXe__MaTuyenXe__1BFD2C07" FromRole="TaiXe" ToRole="TuyenXe" />
+  </EntityType>
+  <EntityType Name="TuyenXe">
+    <Key>
+      <PropertyRef Name="MaTuyenXe" />
+    </Key>
+    <Property Name="MaTuyenXe" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="TenTuyenXe" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+    <Property Name="GioBatDau" Type="Int32" />
+    <Property Name="GioKetThuc" Type="Int32" />
+    <Property Name="DiemDau" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="DiemCuoi" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="TanSuat" Type="Int32" />
+    <NavigationProperty Name="LuuThongs" Relationship="Self.FK__LuuThong__MaTuye__25869641" FromRole="TuyenXe" ToRole="LuuThong" />
+    <NavigationProperty Name="PhuXes" Relationship="Self.FK__PhuXe__MaTuyenXe__1ED998B2" FromRole="TuyenXe" ToRole="PhuXe" />
+    <NavigationProperty Name="TaiXes" Relationship="Self.FK__TaiXe__MaTuyenXe__1BFD2C07" FromRole="TuyenXe" ToRole="TaiXe" />
+    <NavigationProperty Name="VeNgays" Relationship="Self.FK__VeNgay__MaTuyenX__2A4B4B5E" FromRole="TuyenXe" ToRole="VeNgay" />
+    <NavigationProperty Name="XeBuyts" Relationship="Self.FK__XeBuyt__MaTuyenX__21B6055D" FromRole="TuyenXe" ToRole="XeBuyt" />
+    <Property Name="ChiTietTram" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="VeNgay">
+    <Key>
+      <PropertyRef Name="MaVeNgay" />
+    </Key>
+    <Property Name="MaVeNgay" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="TenVeNgay" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="DonGia" Type="Int32" />
+    <Property Name="MaTuyenXe" Type="Int32" />
+    <NavigationProperty Name="BanVeNgays" Relationship="Self.FK__BanVeNgay__MaVeN__2E1BDC42" FromRole="VeNgay" ToRole="BanVeNgay" />
+    <NavigationProperty Name="TuyenXe" Relationship="Self.FK__VeNgay__MaTuyenX__2A4B4B5E" FromRole="VeNgay" ToRole="TuyenXe" />
+  </EntityType>
+  <EntityType Name="VeThang">
+    <Key>
+      <PropertyRef Name="MaVeThang" />
+    </Key>
+    <Property Name="MaVeThang" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="TenVeThang" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="DonGia" Type="Int32" />
+    <Property Name="GhiChu" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="BanVeThangs" Relationship="Self.FK__BanVeThan__MaVeT__33D4B598" FromRole="VeThang" ToRole="BanVeThang" />
+  </EntityType>
+  <EntityType Name="XeBuyt">
+    <Key>
+      <PropertyRef Name="MaXeBuyt" />
+    </Key>
+    <Property Name="MaXeBuyt" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="BienKiemSoat" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="HangSanXuat" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="NamSanXuat" Type="Int32" />
+    <Property Name="SoGhe" Type="Int32" />
+    <Property Name="MaTuyenXe" Type="Int32" />
+    <NavigationProperty Name="LuuThongs" Relationship="Self.FK__LuuThong__MaXeBu__24927208" FromRole="XeBuyt" ToRole="LuuThong" />
+    <NavigationProperty Name="TuyenXe" Relationship="Self.FK__XeBuyt__MaTuyenX__21B6055D" FromRole="XeBuyt" ToRole="TuyenXe" />
+  </EntityType>
+  <Association Name="FK__BanVeNgay__MaPhu__2D27B809">
+    <End Role="PhuXe" Type="Self.PhuXe" Multiplicity="0..1" />
+    <End Role="BanVeNgay" Type="Self.BanVeNgay" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="PhuXe">
+        <PropertyRef Name="MaPhuXe" />
+      </Principal>
+      <Dependent Role="BanVeNgay">
+        <PropertyRef Name="MaPhuXe" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__BanVeNgay__MaVeN__2E1BDC42">
+    <End Role="VeNgay" Type="Self.VeNgay" Multiplicity="0..1" />
+    <End Role="BanVeNgay" Type="Self.BanVeNgay" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="VeNgay">
+        <PropertyRef Name="MaVeNgay" />
+      </Principal>
+      <Dependent Role="BanVeNgay">
+        <PropertyRef Name="MaVeNgay" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__BanVeThan__MaNha__32E0915F">
+    <End Role="NhanVienBanVeThang" Type="Self.NhanVienBanVeThang" Multiplicity="0..1" />
+    <End Role="BanVeThang" Type="Self.BanVeThang" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="NhanVienBanVeThang">
+        <PropertyRef Name="MaNhanVienBanVeThang" />
+      </Principal>
+      <Dependent Role="BanVeThang">
+        <PropertyRef Name="MaNhanVienBanVeThang" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__BanVeThan__MaVeT__33D4B598">
+    <End Role="VeThang" Type="Self.VeThang" Multiplicity="0..1" />
+    <End Role="BanVeThang" Type="Self.BanVeThang" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="VeThang">
+        <PropertyRef Name="MaVeThang" />
+      </Principal>
+      <Dependent Role="BanVeThang">
+        <PropertyRef Name="MaVeThang" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__NhanVienB__MaDie__173876EA">
+    <End Role="DiemBanVeThang" Type="Self.DiemBanVeThang" Multiplicity="0..1" />
+    <End Role="NhanVienBanVeThang" Type="Self.NhanVienBanVeThang" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="DiemBanVeThang">
+        <PropertyRef Name="MaDiemBanVeThang" />
+      </Principal>
+      <Dependent Role="NhanVienBanVeThang">
+        <PropertyRef Name="MaDiemBanVeThang" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__LuuThong__MaPhuX__276EDEB3">
+    <End Role="PhuXe" Type="Self.PhuXe" Multiplicity="0..1" />
+    <End Role="LuuThong" Type="Self.LuuThong" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="PhuXe">
+        <PropertyRef Name="MaPhuXe" />
+      </Principal>
+      <Dependent Role="LuuThong">
+        <PropertyRef Name="MaPhuXe" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__LuuThong__MaTaiX__267ABA7A">
+    <End Role="TaiXe" Type="Self.TaiXe" Multiplicity="0..1" />
+    <End Role="LuuThong" Type="Self.LuuThong" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TaiXe">
+        <PropertyRef Name="MaTaiXe" />
+      </Principal>
+      <Dependent Role="LuuThong">
+        <PropertyRef Name="MaTaiXe" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__LuuThong__MaTuye__25869641">
+    <End Role="TuyenXe" Type="Self.TuyenXe" Multiplicity="0..1" />
+    <End Role="LuuThong" Type="Self.LuuThong" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TuyenXe">
+        <PropertyRef Name="MaTuyenXe" />
+      </Principal>
+      <Dependent Role="LuuThong">
+        <PropertyRef Name="MaTuyenXe" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__LuuThong__MaXeBu__24927208">
+    <End Role="XeBuyt" Type="Self.XeBuyt" Multiplicity="0..1" />
+    <End Role="LuuThong" Type="Self.LuuThong" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="XeBuyt">
+        <PropertyRef Name="MaXeBuyt" />
+      </Principal>
+      <Dependent Role="LuuThong">
+        <PropertyRef Name="MaXeBuyt" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__NhanVienV__MaPho__1273C1CD">
+    <End Role="PhongBan" Type="Self.PhongBan" Multiplicity="0..1" />
+    <End Role="NhanVienVanPhong" Type="Self.NhanVienVanPhong" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="PhongBan">
+        <PropertyRef Name="MaPhongBan" />
+      </Principal>
+      <Dependent Role="NhanVienVanPhong">
+        <PropertyRef Name="MaPhongBan" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__PhuXe__MaTuyenXe__1ED998B2">
+    <End Role="TuyenXe" Type="Self.TuyenXe" Multiplicity="0..1" />
+    <End Role="PhuXe" Type="Self.PhuXe" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TuyenXe">
+        <PropertyRef Name="MaTuyenXe" />
+      </Principal>
+      <Dependent Role="PhuXe">
+        <PropertyRef Name="MaTuyenXe" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__TaiXe__MaTuyenXe__1BFD2C07">
+    <End Role="TuyenXe" Type="Self.TuyenXe" Multiplicity="0..1" />
+    <End Role="TaiXe" Type="Self.TaiXe" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TuyenXe">
+        <PropertyRef Name="MaTuyenXe" />
+      </Principal>
+      <Dependent Role="TaiXe">
+        <PropertyRef Name="MaTuyenXe" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__VeNgay__MaTuyenX__2A4B4B5E">
+    <End Role="TuyenXe" Type="Self.TuyenXe" Multiplicity="0..1" />
+    <End Role="VeNgay" Type="Self.VeNgay" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TuyenXe">
+        <PropertyRef Name="MaTuyenXe" />
+      </Principal>
+      <Dependent Role="VeNgay">
+        <PropertyRef Name="MaTuyenXe" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__XeBuyt__MaTuyenX__21B6055D">
+    <End Role="TuyenXe" Type="Self.TuyenXe" Multiplicity="0..1" />
+    <End Role="XeBuyt" Type="Self.XeBuyt" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TuyenXe">
+        <PropertyRef Name="MaTuyenXe" />
+      </Principal>
+      <Dependent Role="XeBuyt">
+        <PropertyRef Name="MaTuyenXe" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="db_busEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="BanVeNgays" EntityType="Self.BanVeNgay" />
+    <EntitySet Name="BanVeThangs" EntityType="Self.BanVeThang" />
+    <EntitySet Name="DiemBanVeThangs" EntityType="Self.DiemBanVeThang" />
+    <EntitySet Name="LuuThongs" EntityType="Self.LuuThong" />
+    <EntitySet Name="NhanVienBanVeThangs" EntityType="Self.NhanVienBanVeThang" />
+    <EntitySet Name="NhanVienVanPhongs" EntityType="Self.NhanVienVanPhong" />
+    <EntitySet Name="PhongBans" EntityType="Self.PhongBan" />
+    <EntitySet Name="PhuXes" EntityType="Self.PhuXe" />
+    <EntitySet Name="TaiXes" EntityType="Self.TaiXe" />
+    <EntitySet Name="TuyenXes" EntityType="Self.TuyenXe" />
+    <EntitySet Name="VeNgays" EntityType="Self.VeNgay" />
+    <EntitySet Name="VeThangs" EntityType="Self.VeThang" />
+    <EntitySet Name="XeBuyts" EntityType="Self.XeBuyt" />
+    <AssociationSet Name="FK__BanVeNgay__MaPhu__2D27B809" Association="Self.FK__BanVeNgay__MaPhu__2D27B809">
+      <End Role="PhuXe" EntitySet="PhuXes" />
+      <End Role="BanVeNgay" EntitySet="BanVeNgays" />
+    </AssociationSet>
+    <AssociationSet Name="FK__BanVeNgay__MaVeN__2E1BDC42" Association="Self.FK__BanVeNgay__MaVeN__2E1BDC42">
+      <End Role="VeNgay" EntitySet="VeNgays" />
+      <End Role="BanVeNgay" EntitySet="BanVeNgays" />
+    </AssociationSet>
+    <AssociationSet Name="FK__BanVeThan__MaNha__32E0915F" Association="Self.FK__BanVeThan__MaNha__32E0915F">
+      <End Role="NhanVienBanVeThang" EntitySet="NhanVienBanVeThangs" />
+      <End Role="BanVeThang" EntitySet="BanVeThangs" />
+    </AssociationSet>
+    <AssociationSet Name="FK__BanVeThan__MaVeT__33D4B598" Association="Self.FK__BanVeThan__MaVeT__33D4B598">
+      <End Role="VeThang" EntitySet="VeThangs" />
+      <End Role="BanVeThang" EntitySet="BanVeThangs" />
+    </AssociationSet>
+    <AssociationSet Name="FK__NhanVienB__MaDie__173876EA" Association="Self.FK__NhanVienB__MaDie__173876EA">
+      <End Role="DiemBanVeThang" EntitySet="DiemBanVeThangs" />
+      <End Role="NhanVienBanVeThang" EntitySet="NhanVienBanVeThangs" />
+    </AssociationSet>
+    <AssociationSet Name="FK__LuuThong__MaPhuX__276EDEB3" Association="Self.FK__LuuThong__MaPhuX__276EDEB3">
+      <End Role="PhuXe" EntitySet="PhuXes" />
+      <End Role="LuuThong" EntitySet="LuuThongs" />
+    </AssociationSet>
+    <AssociationSet Name="FK__LuuThong__MaTaiX__267ABA7A" Association="Self.FK__LuuThong__MaTaiX__267ABA7A">
+      <End Role="TaiXe" EntitySet="TaiXes" />
+      <End Role="LuuThong" EntitySet="LuuThongs" />
+    </AssociationSet>
+    <AssociationSet Name="FK__LuuThong__MaTuye__25869641" Association="Self.FK__LuuThong__MaTuye__25869641">
+      <End Role="TuyenXe" EntitySet="TuyenXes" />
+      <End Role="LuuThong" EntitySet="LuuThongs" />
+    </AssociationSet>
+    <AssociationSet Name="FK__LuuThong__MaXeBu__24927208" Association="Self.FK__LuuThong__MaXeBu__24927208">
+      <End Role="XeBuyt" EntitySet="XeBuyts" />
+      <End Role="LuuThong" EntitySet="LuuThongs" />
+    </AssociationSet>
+    <AssociationSet Name="FK__NhanVienV__MaPho__1273C1CD" Association="Self.FK__NhanVienV__MaPho__1273C1CD">
+      <End Role="PhongBan" EntitySet="PhongBans" />
+      <End Role="NhanVienVanPhong" EntitySet="NhanVienVanPhongs" />
+    </AssociationSet>
+    <AssociationSet Name="FK__PhuXe__MaTuyenXe__1ED998B2" Association="Self.FK__PhuXe__MaTuyenXe__1ED998B2">
+      <End Role="TuyenXe" EntitySet="TuyenXes" />
+      <End Role="PhuXe" EntitySet="PhuXes" />
+    </AssociationSet>
+    <AssociationSet Name="FK__TaiXe__MaTuyenXe__1BFD2C07" Association="Self.FK__TaiXe__MaTuyenXe__1BFD2C07">
+      <End Role="TuyenXe" EntitySet="TuyenXes" />
+      <End Role="TaiXe" EntitySet="TaiXes" />
+    </AssociationSet>
+    <AssociationSet Name="FK__VeNgay__MaTuyenX__2A4B4B5E" Association="Self.FK__VeNgay__MaTuyenX__2A4B4B5E">
+      <End Role="TuyenXe" EntitySet="TuyenXes" />
+      <End Role="VeNgay" EntitySet="VeNgays" />
+    </AssociationSet>
+    <AssociationSet Name="FK__XeBuyt__MaTuyenX__21B6055D" Association="Self.FK__XeBuyt__MaTuyenX__21B6055D">
+      <End Role="TuyenXe" EntitySet="TuyenXes" />
+      <End Role="XeBuyt" EntitySet="XeBuyts" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

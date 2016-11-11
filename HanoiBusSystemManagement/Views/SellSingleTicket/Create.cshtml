@@ -1,0 +1,64 @@
+﻿@model HanoiBusSystemManagement.Models.BanVeNgay
+
+@{
+    ViewBag.Title = "Create";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@using (Html.BeginForm("Create", "SellSingleTicket", FormMethod.Post))
+{
+    @Html.AntiForgeryToken()
+
+    <div class="form-horizontal">
+        <h4>Thêm giao dịch vé ngày</h4>
+        <hr />
+        @Html.ValidationSummary(true)
+
+        <div class="form-group">
+            <label class="control-label col-md-2">Ngày</label>
+            <div class="col-md-10">
+                @Html.TextBoxFor(model => model.Ngay, null, new { @style = "width:300px;", @required = "true", @type = "date" })
+                @Html.ValidationMessageFor(model => model.Ngay)
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label class="control-label col-md-2">Phụ xe</label>
+            <div class="col-md-10">
+                @Html.DropDownListFor(model => model.MaPhuXe, null, new { @class = "form-control", @style = "width:300px;" })
+                @Html.ValidationMessageFor(model => model.MaPhuXe)
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label class="control-label col-md-2">Vé ngày</label>
+            <div class="col-md-10">
+                @Html.DropDownListFor(model => model.MaVeNgay, null, new { @class = "form-control", @style = "width:300px;" })
+                @Html.ValidationMessageFor(model => model.MaVeNgay)
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label class="control-label col-md-2">Số vé phát ra</label>
+            <div class="col-md-10">
+                @Html.TextBoxFor(model => model.SoVePhatRa, null, new { @style = "width:300px;", @required = "true", @type = "number" })
+                @Html.ValidationMessageFor(model => model.SoVePhatRa)
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label class="control-label col-md-2">Số vé thu về</label>
+            <div class="col-md-10">
+                @Html.TextBoxFor(model => model.SoVeThuVe, null, new { @style = "width:300px;", @required = "true", @type = "number" })
+                @Html.ValidationMessageFor(model => model.SoVeThuVe)
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <a href="/SellSingleTicket/Index" class="btn btn-round btn-warning">Trở lại</a>
+                <input class="btn btn-round btn-success" type="submit" value="Đồng Ý" />
+            </div>
+        </div>
+    </div>
+}

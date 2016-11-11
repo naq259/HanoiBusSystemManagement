@@ -1,0 +1,48 @@
+﻿@model HanoiBusSystemManagement.Models.VeNgay
+
+@{
+    ViewBag.Title = "Create";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@using (Html.BeginForm("Create", "SingleTicket", FormMethod.Post))
+{
+    @Html.AntiForgeryToken()
+
+    <div class="form-horizontal">
+        <h4>Thêm xe buýt</h4>
+        <hr />
+        @Html.ValidationSummary(true)
+
+        <div class="form-group">
+            <label class="control-label col-md-2">Tên vé ngày</label>
+            <div class="col-md-10">
+                @Html.TextBoxFor(model => model.TenVeNgay, null, new { @style = "width:300px;", @required = "true", placeholder = "Nhập theo dạng: /Ticket{dd}{mm}{yyyy}/" })
+                @Html.ValidationMessageFor(model => model.TenVeNgay)
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label class="control-label col-md-2">Đơn giá</label>
+            <div class="col-md-10">
+                @Html.TextBoxFor(model => model.DonGia, null, new { @style = "width:300px;", @required = "true", @type = "number" })
+                @Html.ValidationMessageFor(model => model.DonGia)
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label class="control-label col-md-2">Tuyến xe</label>
+            <div class="col-md-10">
+                @Html.DropDownListFor(model => model.MaTuyenXe, null, new { @class = "form-control", @style = "width:300px;" })
+                @Html.ValidationMessageFor(model => model.MaTuyenXe)
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <a href="/SingleTicket/Index" class="btn btn-round btn-warning">Trở lại</a>
+                <input class="btn btn-round btn-success" type="submit" value="Đồng Ý" />
+            </div>
+        </div>
+    </div>
+}

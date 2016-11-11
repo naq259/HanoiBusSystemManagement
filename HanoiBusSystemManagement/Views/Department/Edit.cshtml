@@ -1,0 +1,32 @@
+﻿@model HanoiBusSystemManagement.Models.PhongBan
+
+@{
+    ViewBag.Title = "Edit";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@using (Html.BeginForm("Edit", "Department", FormMethod.Post))
+{
+    @Html.AntiForgeryToken()
+
+    <div class="form-horizontal">
+        <h4>Thay đổi tên phòng ban</h4>
+        <hr />
+        @Html.ValidationSummary(true)
+
+        <div class="form-group">
+            <label class="control-label col-md-2">Tên phòng ban</label>
+            <div class="col-md-10">
+                @Html.TextBoxFor(model => model.TenPhongBan, null, new { @class = "form-control", @style = "width:300px;", @required = "true" })
+                @Html.ValidationMessageFor(model => model.TenPhongBan)
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <a href="/Department/Index" class="btn btn-round btn-warning">Trở lại</a>
+                <input class="btn btn-round btn-success" type="submit" value="Đồng Ý" />
+            </div>
+        </div>
+    </div>
+}

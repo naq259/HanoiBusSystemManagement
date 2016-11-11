@@ -1,0 +1,50 @@
+﻿@model HanoiBusSystemManagement.Models.ChangeImage
+
+@{
+    ViewBag.Title = "EditImage";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@section ImageJS
+{
+    <script>
+        function BrowseServer() {
+            var finder = new CKFinder();
+            finder.selectActionFunction = SetFileField;
+            finder.popup();
+        }
+        function SetFileField(fileUrl) {
+            document.getElementById("Image").value = fileUrl;
+        }
+    </script>
+
+}
+
+@using (Html.BeginForm("EditImage", "Profile", FormMethod.Post))
+{
+    @Html.AntiForgeryToken()
+
+    <div class="form-horizontal">
+        <h4>Thay đổi ảnh đại diện</h4>
+        <hr />
+        @Html.ValidationSummary(true)
+
+        <div class="form-group">
+            <label class="control-label col-md-2">Chọn ảnh mới</label>
+            <div class="col-md-10">
+                @Html.TextBoxFor(model => model.Img, new { @id = "Image", @name = "Image", @style = "width:225px;", @required = "true" })
+                <input value="Chọn ảnh" class="input-file uniform_on" id="fileInput" type="button" onclick="BrowseServer();" />
+                @Html.ValidationMessageFor(model => model.Img)
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <a href="/Profile/Index" class="btn btn-round btn-warning">Back</a>
+                <button type="reset" class="btn btn-round btn-default">Reset</button>
+                <button type="submit" class="btn btn-round btn-success">Submit</button>
+            </div>
+        </div>
+    </div>
+}
+

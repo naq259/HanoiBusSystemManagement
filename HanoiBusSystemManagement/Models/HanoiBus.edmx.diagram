@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="4f3ac9985d92408c81418ccf1d68bfab" Name="Diagram1">
+        <EntityTypeShape EntityType="db_busModel.BanVeNgay" Width="1.5" PointX="5.25" PointY="9.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="db_busModel.BanVeThang" Width="1.5" PointX="5.25" PointY="1.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="db_busModel.DiemBanVeThang" Width="1.5" PointX="0.75" PointY="1.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="db_busModel.LuuThong" Width="1.5" PointX="5.25" PointY="12.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="db_busModel.NhanVienBanVeThang" Width="1.5" PointX="3" PointY="1" IsExpanded="true" />
+        <EntityTypeShape EntityType="db_busModel.NhanVienVanPhong" Width="1.5" PointX="10" PointY="1" IsExpanded="true" />
+        <EntityTypeShape EntityType="db_busModel.PhongBan" Width="1.5" PointX="7.75" PointY="2" IsExpanded="true" />
+        <EntityTypeShape EntityType="db_busModel.PhuXe" Width="1.5" PointX="3" PointY="7.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="db_busModel.TaiXe" Width="1.5" PointX="3" PointY="11.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="db_busModel.TuyenXe" Width="1.5" PointX="0.75" PointY="8.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="db_busModel.VeNgay" Width="1.5" PointX="3" PointY="15.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="db_busModel.VeThang" Width="1.5" PointX="3" PointY="22.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="db_busModel.XeBuyt" Width="1.5" PointX="3" PointY="18.625" IsExpanded="true" />
+        <AssociationConnector Association="db_busModel.FK__BanVeNgay__MaPhu__2D27B809" ManuallyRouted="false" />
+        <AssociationConnector Association="db_busModel.FK__BanVeNgay__MaVeN__2E1BDC42" ManuallyRouted="false" />
+        <AssociationConnector Association="db_busModel.FK__BanVeThan__MaNha__32E0915F" ManuallyRouted="false" />
+        <AssociationConnector Association="db_busModel.FK__BanVeThan__MaVeT__33D4B598" ManuallyRouted="false" />
+        <AssociationConnector Association="db_busModel.FK__NhanVienB__MaDie__173876EA" ManuallyRouted="false" />
+        <AssociationConnector Association="db_busModel.FK__LuuThong__MaPhuX__276EDEB3" ManuallyRouted="false" />
+        <AssociationConnector Association="db_busModel.FK__LuuThong__MaTaiX__267ABA7A" ManuallyRouted="false" />
+        <AssociationConnector Association="db_busModel.FK__LuuThong__MaTuye__25869641" ManuallyRouted="false" />
+        <AssociationConnector Association="db_busModel.FK__LuuThong__MaXeBu__24927208" ManuallyRouted="false" />
+        <AssociationConnector Association="db_busModel.FK__NhanVienV__MaPho__1273C1CD" ManuallyRouted="false" />
+        <AssociationConnector Association="db_busModel.FK__PhuXe__MaTuyenXe__1ED998B2" ManuallyRouted="false" />
+        <AssociationConnector Association="db_busModel.FK__TaiXe__MaTuyenXe__1BFD2C07" ManuallyRouted="false" />
+        <AssociationConnector Association="db_busModel.FK__VeNgay__MaTuyenX__2A4B4B5E" ManuallyRouted="false" />
+        <AssociationConnector Association="db_busModel.FK__XeBuyt__MaTuyenX__21B6055D" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

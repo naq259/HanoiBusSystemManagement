@@ -1,0 +1,185 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <!-- Meta, title, CSS, favicons, etc. -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Hanoi-Bus</title>
+    <!-- Bootstrap -->
+    <link href="~/Assets/vendors/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Font Awesome -->
+    <link href="~/Assets/vendors/font-awesome/css/font-awesome.min.css" rel="stylesheet">
+    <!-- iCheck -->
+    <link href="~/Assets/vendors/iCheck/skins/flat/green.css" rel="stylesheet">
+    <!-- bootstrap-progressbar -->
+    <link href="~/Assets/vendors/bootstrap-progressbar/css/bootstrap-progressbar-3.3.4.min.css" rel="stylesheet">
+    <!-- jVectorMap -->
+    <link href="css/maps/jquery-jvectormap-2.0.3.css" rel="stylesheet" />
+    <!-- Datatables -->
+    <link href="~/Assets/vendors/datatables.net-bs/css/dataTables.bootstrap.min.css" rel="stylesheet">
+    <link href="~/Assets/vendors/datatables.net-buttons-bs/css/buttons.bootstrap.min.css" rel="stylesheet">
+    <link href="~/Assets/vendors/datatables.net-fixedheader-bs/css/fixedHeader.bootstrap.min.css" rel="stylesheet">
+    <link href="~/Assets/vendors/datatables.net-responsive-bs/css/responsive.bootstrap.min.css" rel="stylesheet">
+    <link href="~/Assets/vendors/datatables.net-scroller-bs/css/scroller.bootstrap.min.css" rel="stylesheet">
+    <!-- Custom Theme Style -->
+    <link href="~/Assets/build/css/custom.min.css" rel="stylesheet">
+</head>
+<body class="nav-md">
+    @{
+        var session = (HanoiBusSystemManagement.Common.Login)Session["SESSION"];
+        if (session != null)
+        {
+            <div class="container body">
+                <div class="main_container">
+                    <div class="col-md-3 left_col">
+                        <div class="left_col scroll-view">
+                            <div class="navbar nav_title" style="border: 0;">
+                                <a href="#" class="site_title"><i class="fa fa-paw"></i> <span>Hanoi-Bus</span></a>
+                            </div>
+                            <div class="clearfix"></div>
+                            <!-- menu profile quick info -->
+                            <!-- /menu profile quick info -->
+                            <br />
+                            <!-- sidebar menu -->
+                            <div id="sidebar-menu" class="main_menu_side hidden-print main_menu">
+                                <div class="menu_section">
+                                    @switch (session.DeptID)
+                                    {
+                                        case 1:
+                                            {
+                                                <ul class="nav side-menu">
+                                                    <li><a href="/Home/"><i class="fa fa-home"></i> Trang chủ </a></li>
+                                                    <li><a href="/Officer/"><i class="fa fa-user-md"></i> Nhân viên văn phòng </a></li>
+                                                    <li><a href="/Driver/"><i class="fa fa-user"></i> Tài xế </a></li>
+                                                    <li><a href="/Assistant/"><i class="fa fa-user"></i> Phụ xe </a></li>
+                                                    <li><a href="/TicketSeller/"><i class="fa fa-user"></i> Nhân viên bán vé tháng </a></li>
+                                                </ul>
+                                                break;
+                                            }
+                                        case 2:
+                                            {
+                                                <ul class="nav side-menu">
+                                                    <li><a href="/Home/"><i class="fa fa-home"></i> Trang chủ </a></li>
+                                                    <li><a href="/Bus/"><i class="fa fa-bus"></i> Xe buýt </a></li>
+                                                    <li><a href="/BusRoute/"><i class="fa fa-location-arrow"></i> Tuyến xe </a></li>
+                                                    <li><a href="/Traffic/"><i class="fa fa-road"></i> Lưu thông </a></li>
+                                                </ul>
+                                                break;
+                                            }
+                                        case 3:
+                                            {
+                                                <ul class="nav side-menu">
+                                                    <li><a href="/Home/"><i class="fa fa-home"></i> Trang chủ </a></li>
+                                                    <li><a href="/SingleTicket/"><i class="fa fa-credit-card"></i> Vé ngày </a></li>
+                                                    <li><a href="/SellSingleTicket/"><i class="fa fa-money"></i> Thông tin bán vé ngày </a></li>
+                                                    <li><a href="/MonthTicket/"><i class="fa fa-credit-card"></i> Vé tháng </a></li>
+                                                    <li><a href="/SellMonthTicket/"><i class="fa fa-money"></i> Thông tin bán vé tháng </a></li>
+                                                    <li><a href="/TicketOffice/"><i class="fa fa-institution"></i> Điểm bán vé tháng </a></li>
+                                                    <li><a href="/Statistic/"><i class="fa fa-columns"></i> Thống kê biểu đồ </a></li>
+                                                    <li><a href="/Statistic/Time"><i class="fa fa-money"></i> Thống kê bán vé theo thời gian </a></li>
+                                                </ul>
+                                                break;
+                                            }
+                                        default:
+                                            {
+                                                <ul class="nav side-menu">
+                                                    <li><a href="/Home/"><i class="fa fa-home"></i> Trang chủ </a></li>
+                                                    <li><a href="/Officer/"><i class="fa fa-user-md"></i> Nhân viên văn phòng </a></li>
+                                                    <li><a href="/Driver/"><i class="fa fa-user"></i> Tài xế </a></li>
+                                                    <li><a href="/Assistant/"><i class="fa fa-user"></i> Phụ xe </a></li>
+                                                    <li><a href="/TicketSeller/"><i class="fa fa-user"></i> Nhân viên bán vé tháng </a></li>
+                                                    <li><a href="/Bus/"><i class="fa fa-bus"></i> Xe buýt </a></li>
+                                                    <li><a href="/BusRoute/"><i class="fa fa-location-arrow"></i> Tuyến xe </a></li>
+                                                    <li><a href="/Traffic/"><i class="fa fa-road"></i> Lưu thông </a></li>
+                                                    <li><a href="/SingleTicket/"><i class="fa fa-credit-card"></i> Vé ngày </a></li>
+                                                    <li><a href="/SellSingleTicket/"><i class="fa fa-money"></i> Thông tin bán vé ngày </a></li>
+                                                    <li><a href="/MonthTicket/"><i class="fa fa-credit-card"></i> Vé tháng </a></li>
+                                                    <li><a href="/SellMonthTicket/"><i class="fa fa-money"></i> Thông tin bán vé tháng </a></li>
+                                                    <li><a href="/TicketOffice/"><i class="fa fa-institution"></i> Điểm bán vé tháng </a></li>
+                                                    <li><a href="/Statistic/"><i class="fa fa-columns"></i> Thống kê biểu đồ </a></li>
+                                                    <li><a href="/Statistic/Time"><i class="fa fa-money"></i> Thống kê theo thời gian </a></li>
+                                                    <li><a href="/Department/"><i class="fa fa-th-list"></i> Danh sách phòng ban </a></li>
+                                                </ul>
+                                                break;
+                                            }
+                                    }
+                                </div>
+                            </div>
+                            <!-- /sidebar menu -->
+                        </div>
+                    </div>
+                    <!-- top navigation -->
+                    <div class="top_nav">
+                        <div class="nav_menu">
+                            <nav class="" role="navigation">
+                                <div class="nav toggle">
+                                    <a id="menu_toggle"><i class="fa fa-bars"></i></a>
+                                </div>
+                                <ul class="nav navbar-nav navbar-right">
+                                    <li class="">
+                                        <a href="#" class="user-profile dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
+                                            <img src="@session.AnhCaNhan" alt="">@session.Name
+                                            <span class=" fa fa-angle-down"></span>
+                                        </a>
+                                        <ul class="dropdown-menu dropdown-usermenu pull-right">
+                                            <li><a href="/Profile/"> Profile</a></li>
+                                            <li><a href="/Login/Logout"><i class="fa fa-sign-out pull-right"></i> Log Out</a></li>
+                                        </ul>
+                                    </li>
+                                </ul>
+                            </nav>
+                        </div>
+                    </div>
+                    <!-- /top navigation -->
+                    <!-- page content -->
+                    <div class="right_col" role="main">
+                        @RenderBody()
+                    </div>
+                    <!-- /page content -->
+                    <!-- footer content -->
+                    <footer>
+                        <div class="pull-right">
+                            Hệ thống quản lý xí nghiệp xe buýt Hà Nội - HanoiBus
+                        </div>
+                        <div class="clearfix"></div>
+                    </footer>
+                    <!-- /footer content -->
+                </div>
+            </div>
+    <!-- jQuery -->
+            <script src="~/Assets/vendors/jquery/dist/jquery.min.js"></script>
+    <!-- Bootstrap -->
+            <script src="~/Assets/vendors/bootstrap/dist/js/bootstrap.min.js"></script>
+    <!-- FastClick -->
+            <script src="~/Assets/vendors/fastclick/lib/fastclick.js"></script>
+    <!-- NProgress -->
+            <script src="~/Assets/vendors/nprogress/nprogress.js"></script>
+    <!-- Datatables -->
+            <script src="~/Assets/vendors/datatables.net/js/jquery.dataTables.min.js"></script>
+            <script src="~/Assets/vendors/datatables.net-bs/js/dataTables.bootstrap.min.js"></script>
+            <script src="~/Assets/vendors/datatables.net-buttons/js/dataTables.buttons.min.js"></script>
+            <script src="~/Assets/vendors/datatables.net-buttons-bs/js/buttons.bootstrap.min.js"></script>
+            <script src="~/Assets/vendors/datatables.net-buttons/js/buttons.flash.min.js"></script>
+            <script src="~/Assets/vendors/datatables.net-buttons/js/buttons.html5.min.js"></script>
+            <script src="~/Assets/vendors/datatables.net-buttons/js/buttons.print.min.js"></script>
+            <script src="~/Assets/vendors/datatables.net-fixedheader/js/dataTables.fixedHeader.min.js"></script>
+            <script src="~/Assets/vendors/datatables.net-keytable/js/dataTables.keyTable.min.js"></script>
+            <script src="~/Assets/vendors/datatables.net-responsive/js/dataTables.responsive.min.js"></script>
+            <script src="~/Assets/vendors/datatables.net-responsive-bs/js/responsive.bootstrap.js"></script>
+            <script src="~/Assets/vendors/datatables.net-scroller/js/datatables.scroller.min.js"></script>
+            <script src="~/Assets/vendors/jszip/dist/jszip.min.js"></script>
+            <script src="~/Assets/vendors/pdfmake/build/pdfmake.min.js"></script>
+            <script src="~/Assets/vendors/pdfmake/build/vfs_fonts.js"></script>
+    <!-- Custom Theme Scripts -->
+            <script src="~/Assets/build/js/custom.min.js"></script>
+    <!-- Datatables -->
+            @RenderSection("PrintJS", required: false)
+    <!-- /Datatables -->
+            <script src="~/Assets/ckfinder/ckfinder.js"></script>
+            @RenderSection("ImageJS", required: false)
+        }
+    }
+</body>
+</html>

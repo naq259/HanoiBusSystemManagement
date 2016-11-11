@@ -1,0 +1,44 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<style>
+    #map_canvas {
+        width: 99%;
+        height: 600px;
+        border: solid 1px #ccc;
+    }
+</style>
+
+<div id="map_canvas"></div>
+
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAW1ywEIGbtH4Zb33xs_UvclRrZ6WCmjuM&sensor=false"></script>
+<script>
+    function initialize() {
+        var myLatlng = new google.maps.LatLng(21.024931, 105.832872);
+        var mapOptions = {
+            zoom: 9,
+            center: myLatlng
+        };
+
+        var map = new google.maps.Map(document.getElementById('map_canvas'), mapOptions);
+
+        var infowindow = new google.maps.InfoWindow({
+            content: contentString
+        });
+
+        var marker = new google.maps.Marker({
+            position: myLatlng,
+            map: map
+        });
+        google.maps.event.addListener(marker, 'click', function () {
+            infowindow.open(map, marker);
+        })
+    }
+
+    google.maps.event.addDomListener(window, 'load', initialize);
+
+
+</script>

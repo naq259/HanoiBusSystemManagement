@@ -1,0 +1,103 @@
+﻿@{
+    ViewBag.Title = "Time";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@using (Html.BeginForm())
+{
+    <p>
+        Ngày bắt đầu: @Html.TextBox("start", null, new { @type = "date" })
+        Ngày kết thúc: @Html.TextBox("end", null, new { @type = "date" })
+        <input type="submit" value="Xem kết quả" />
+    </p>
+}
+
+<div class="row">
+    <div class="col-md-6 col-sm-6 col-xs-12">
+        <div class="x_panel">
+            <div class="x_title">
+                <h2>Doanh thu bán vé ngày</h2>
+                <div class="clearfix"></div>
+            </div>
+
+            <div class="x_content">
+                <table id="datatable-buttons" class="table table-striped table-bordered">
+                    <thead>
+                        <tr>
+                            <th>Ngày</th>
+                            <th>Phụ xe</th>
+                            <th>Tên vé ngày</th>
+                            <th>Số vé bán được</th>
+                            <th>Doanh thu (VNĐ)</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @{
+                            var tong1 = 0;
+                            foreach (HanoiBusSystemManagement.Models.BanVeNgay item in ViewBag.list1)
+                            {
+                                <tr>
+                                    <td>@item.Ngay</td>
+                                    <td>@item.PhuXe.HoTen</td>
+                                    <td>@item.VeNgay.TenVeNgay</td>
+                                    @{
+                                int quantity = @item.SoVePhatRa - @item.SoVeThuVe;
+                                int sum = quantity * @item.VeNgay.DonGia;
+                                <td>@quantity</td>
+                                        <td>@sum.ToString("0,0")</td>
+                                    }
+                                </tr>
+                                tong1 += sum;
+                            }
+                            <h2 style="color:red;">Tổng doanh thu: @tong1.ToString("0,0") VNĐ</h2>
+                        }
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-md-6 col-sm-6 col-xs-12">
+        <div class="x_panel">
+            <div class="x_title">
+                <h2>Doanh thu bán vé tháng</h2>
+                <div class="clearfix"></div>
+            </div>
+
+            <div class="x_content">
+                <table id="datatable-buttons" class="table table-striped table-bordered">
+                    <thead>
+                        <tr>
+                            <th>Ngày</th>
+                            <th>Nhân viên bán vé tháng</th>
+                            <th>Tên vé tháng</th>
+                            <th>Số vé bán được</th>
+                            <th>Doanh thu (VNĐ)</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @{
+                            var tong2 = 0;
+                            foreach (HanoiBusSystemManagement.Models.BanVeThang item in ViewBag.list2)
+                            {
+                                <tr>
+                                    <td>@item.Ngay</td>
+                                    <td>@item.NhanVienBanVeThang.HoTen</td>
+                                    <td>@item.VeThang.TenVeThang</td>
+                                    @{
+                                int quantity = @item.SoVePhatRa - @item.SoVeThuVe;
+                                int sum = quantity * @item.VeThang.DonGia;
+                                <td>@quantity</td>
+                                        <td>@sum.ToString("0,0")</td>
+                                    }
+                                </tr>
+                                tong2 += sum;
+                            }
+                            <h2 style="color:red;">Tổng doanh thu: @tong2.ToString("0,0") VNĐ</h2>
+                        }
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>

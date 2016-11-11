@@ -1,0 +1,42 @@
+﻿@model HanoiBusSystemManagement.Models.DiemBanVeThang
+
+@{
+    ViewBag.Title = "Edit";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+    
+    <div class="form-horizontal">
+        <h4>Sửa thông tin điểm bán vé tháng</h4>
+        <hr />
+        @Html.ValidationSummary(true)
+        @Html.HiddenFor(model => model.MaDiemBanVeThang)
+
+        <div class="form-group">
+            <label class="control-label col-md-2">Địa chỉ</label>
+            <div class="col-md-10">
+                @Html.TextBoxFor(model => model.DiaChi, null, new { @class = "form-control", @style = "width:300px;", @required = "true" })
+                @Html.ValidationMessageFor(model => model.DiaChi)
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label class="control-label col-md-2">Số điện thoại</label>
+            <div class="col-md-10">
+                @Html.TextBoxFor(model => model.SoDienThoai, null, new { @class = "form-control", @style = "width:300px;", @required = "true", @type = "number" })
+                @Html.ValidationMessageFor(model => model.SoDienThoai)
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <a href="/Officer/Index" class="btn btn-round btn-warning">Trở lại</a>
+                <input class="btn btn-round btn-success" type="submit" value="Đồng Ý" />
+            </div>
+        </div>
+    </div>
+}
+

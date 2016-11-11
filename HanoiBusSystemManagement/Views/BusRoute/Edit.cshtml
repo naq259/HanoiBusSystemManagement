@@ -1,0 +1,80 @@
+﻿@model HanoiBusSystemManagement.Models.TuyenXe
+
+@{
+    ViewBag.Title = "Edit";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@using (Html.BeginForm("Edit", "BusRoute", FormMethod.Post))
+{
+    @Html.AntiForgeryToken()
+
+    <div class="form-horizontal">
+        <h4>Sửa thông tin tuyến xe</h4>
+        <hr />
+        @Html.ValidationSummary(true)
+
+        <div class="form-group">
+            <label class="control-label col-md-2">Tên tuyến xe</label>
+            <div class="col-md-10">
+                @Html.TextBoxFor(model => model.TenTuyenXe, null, new { @style = "width:300px;", @required = "true" })
+                @Html.ValidationMessageFor(model => model.TenTuyenXe)
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label class="control-label col-md-2">Giờ bắt đầu</label>
+            <div class="col-md-10">
+                @Html.TextBoxFor(model => model.GioBatDau, null, new { @style = "width:300px;", @required = "true", @type = "number" })
+                @Html.ValidationMessageFor(model => model.GioBatDau)
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label class="control-label col-md-2">Giờ kết thúc</label>
+            <div class="col-md-10">
+                @Html.TextBoxFor(model => model.GioKetThuc, null, new { @style = "width:300px;", @required = "true", @type = "number" })
+                @Html.ValidationMessageFor(model => model.GioKetThuc)
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label class="control-label col-md-2">Điểm đầu</label>
+            <div class="col-md-10">
+                @Html.TextBoxFor(model => model.DiemDau, null, new { @style = "width:300px;", @required = "true" })
+                @Html.ValidationMessageFor(model => model.DiemDau)
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label class="control-label col-md-2">Điểm cuối</label>
+            <div class="col-md-10">
+                @Html.TextBoxFor(model => model.DiemCuoi, null, new { @style = "width:300px;", @required = "true" })
+                @Html.ValidationMessageFor(model => model.DiemCuoi)
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label class="control-label col-md-2">Các trạm</label>
+            <div class="col-md-10">
+                @Html.TextBoxFor(model => model.ChiTietTram, null, new { @style = "width:300px;", @required = "true" })
+                @Html.ValidationMessageFor(model => model.ChiTietTram)
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label class="control-label col-md-2">Tần suất (phút)</label>
+            <div class="col-md-10">
+                @Html.TextBoxFor(model => model.TanSuat, null, new { @style = "width:300px;", @required = "true" })
+                @Html.ValidationMessageFor(model => model.TanSuat)
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <a href="/BusRoute/Index" class="btn btn-round btn-warning">Trở lại</a>
+                <input class="btn btn-round btn-success" type="submit" value="Đồng Ý" />
+            </div>
+        </div>
+    </div>
+}

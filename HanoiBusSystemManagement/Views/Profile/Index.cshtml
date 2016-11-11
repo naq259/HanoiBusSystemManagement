@@ -1,0 +1,53 @@
+﻿@model HanoiBusSystemManagement.Models.NhanVienVanPhong
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="col-md-12 col-sm-12 col-xs-12">
+    <div class="x_panel">
+        <div class="x_title">
+            <h2>Thông tin cá nhân</h2>
+            <div class="clearfix"></div>
+        </div>
+
+        <div class="x_content">
+            <table id="datatable-buttons" class="table table-striped table-bordered">
+                <tbody>
+                    @{
+                        var session = (HanoiBusSystemManagement.Common.Login)Session["SESSION"];
+                        if (session != null)
+                        {
+                            <tr>
+                                <td><b>Họ tên</b></td>
+                                <td>@session.Name</td>
+                            </tr>
+                            <tr>
+                                <td><b>Tài khoản</b></td>
+                                <td>@session.Username</td>
+                            </tr>
+                            <tr>
+                                <td><b>Mật khẩu</b></td>
+                                <td><a href="/Profile/EditPassword/@session.ID">Thay đổi mật khẩu</a></td>
+                            </tr>
+                            <tr>
+                                <td><b>Ảnh đại diện</b></td>
+                                <td><a href="/Profile/EditImage/@session.ID">Thay đổi ảnh đại diện</a></td>
+                            </tr>
+                            <tr>
+                                <td><b>Phòng ban</b></td>
+                                @foreach(HanoiBusSystemManagement.Models.PhongBan item in ViewBag.PhongBan)
+                                {
+                                    if(@session.DeptID == item.MaPhongBan)
+                                    {
+                                        <td>@item.TenPhongBan</td>
+                                    }
+                                }
+                            </tr>
+                        }
+                    }
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>

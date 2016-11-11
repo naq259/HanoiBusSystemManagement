@@ -1,0 +1,64 @@
+﻿@model HanoiBusSystemManagement.Models.LuuThong
+
+@{
+    ViewBag.Title = "Create";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@using (Html.BeginForm("Create", "Traffic", FormMethod.Post))
+{
+    @Html.AntiForgeryToken()
+
+    <div class="form-horizontal">
+        <h4>Thêm lưu thông</h4>
+        <hr />
+        @Html.ValidationSummary(true)
+
+        <div class="form-group">
+            <label class="control-label col-md-2">Ca</label>
+            <div class="col-md-10">
+                @Html.TextBoxFor(model => model.Ca, null, new { @style = "width:300px;", @required = "true" })
+                @Html.ValidationMessageFor(model => model.Ca)
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label class="control-label col-md-2">Biển kiểm soát</label>
+            <div class="col-md-10">
+                @Html.DropDownListFor(model => model.MaXeBuyt, null, new { @class = "form-control", @style = "width:300px;" })
+                @Html.ValidationMessageFor(model => model.MaXeBuyt)
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label class="control-label col-md-2">Tuyến xe</label>
+            <div class="col-md-10">
+                @Html.DropDownListFor(model => model.MaTuyenXe, null, new { @class = "form-control", @style = "width:300px;" })
+                @Html.ValidationMessageFor(model => model.MaTuyenXe)
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label class="control-label col-md-2">Tài xế</label>
+            <div class="col-md-10">
+                @Html.DropDownListFor(model => model.MaTaiXe, null, new { @class = "form-control", @style = "width:300px;" })
+                @Html.ValidationMessageFor(model => model.MaTaiXe)
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label class="control-label col-md-2">Phụ xe</label>
+            <div class="col-md-10">
+                @Html.DropDownListFor(model => model.MaPhuXe, null, new { @class = "form-control", @style = "width:300px;" })
+                @Html.ValidationMessageFor(model => model.MaPhuXe)
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <a href="/Traffic/Index" class="btn btn-round btn-warning">Trở lại</a>
+                <input class="btn btn-round btn-success" type="submit" value="Đồng Ý" />
+            </div>
+        </div>
+    </div>
+}

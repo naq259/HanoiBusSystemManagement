@@ -1,0 +1,69 @@
+﻿@model HanoiBusSystemManagement.Models.LoginModel
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <!-- Meta, title, CSS, favicons, etc. -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Hanoi-Bus </title>
+    <!-- Bootstrap -->
+    <link href="~/Assets/vendors/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Font Awesome -->
+    <link href="~/Assets/vendors/font-awesome/css/font-awesome.min.css" rel="stylesheet">
+    <!-- Animate.css -->
+    <link href="https://colorlib.com/polygon/gentelella/css/animate.min.css" rel="stylesheet">
+    <!-- Custom Theme Style -->
+    <link href="~/Assets/build/css/custom.min.css" rel="stylesheet">
+</head>
+<body class="login">
+    <div>
+        <a class="hiddenanchor" id="signup"></a>
+        <a class="hiddenanchor" id="signin"></a>
+        <div class="login_wrapper">
+            <div class="animate form login_form">
+                <section class="login_content">
+                    @using (Html.BeginForm("Index", "Login", FormMethod.Post))
+                    {
+                        Html.ValidationSummary(false, "", new { @class = "text-danger" });
+                        <h1>Đăng nhập</h1>
+                        <div>
+                            @Html.TextBoxFor(model => model.Username, null, new { @class = "form-control", @placeholder = "Tài khoản", @required = "true"})
+                        </div>
+                        <div>
+                            @Html.TextBoxFor(model => model.Password, null, new { @class = "form-control", @placeholder = "Mật khẩu", @required = "true", @type = "password" })
+                        </div>
+                        <div>
+                            @Html.DropDownListFor(model => model.DeptID, new List<SelectListItem> 
+                       { 
+                            new SelectListItem(){Text = "Nhân sự", Value = "1"},
+                            new SelectListItem(){Text = "Điều hành", Value = "2"},
+                            new SelectListItem(){Text = "Kinh doanh", Value = "3"},
+                            new SelectListItem(){Text = "Quản lý", Value = "4"},
+                       }, new { @class = "form-control" })
+                        </div>
+                        <br />
+                        <div>
+                            <button type="submit" class="btn btn-default submit">Đăng nhập</button>
+                        </div>
+
+                        <div class="clearfix"></div>
+                        <div class="separator">
+                            <div>
+                                <h1><i class="fa fa-paw"></i> Hanoi-Bus</h1>
+                                <p>©2016 All Rights Reserved. Hanoi-Bus</p>
+                            </div>
+                        </div>
+                    }
+                </section>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
